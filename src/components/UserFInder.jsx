@@ -1,27 +1,11 @@
 import React, { Component, Fragment } from "react";
 import styles from "./UserFinder.module.css";
 import Users from "./Users";
-
-const DUMMY_USERS = [
-  {
-    id: "01",
-    name: "santosh ",
-  },
-  {
-    id: "02",
-    name: "santhi ",
-  },
-  {
-    id: "03",
-    name: "bharathi ",
-  },
-  {
-    id: "04",
-    name: "mahesh ",
-  },
-];
+import UsersContext from "../store/users-context";
+import ErrorBoundary from "./ErrorBoundary";
 
 class UserFinder extends Component {
+  static contextType = UsersContext;
   constructor() {
     super();
     this.state = {
@@ -33,13 +17,13 @@ class UserFinder extends Component {
   componentDidMount() {
     //send the requests...
 
-    this.setState({ filterUser: DUMMY_USERS });
+    this.setState({ filterUser: this.context.users });
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.searchTerm !== this.state.searchTerm) {
       this.setState({
-        filterUser: DUMMY_USERS.filter((user) =>
+        filterUser: this.context.users.filter((user) =>
           user.name.includes(this.state.searchTerm)
         ),
       });
@@ -56,7 +40,9 @@ class UserFinder extends Component {
         <div className={styles.finder}>
           <input type="search" onChange={this.searchChangeHandler.bind(this)} />
         </div>
-        <Users users={this.state.filterUser} />
+        <ErrorBoundary>
+          <Users users={this.state.filterUser} />
+        </ErrorBoundary>
       </Fragment>
     );
   }
