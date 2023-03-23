@@ -1,17 +1,23 @@
-footer {
-  background-color: rgb(60, 58, 58);
-  height: 5rem;
+.app {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #a8a2a2;
+  margin: 2rem 10rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.24);
+  padding: 2rem;
+  text-align: center;
+  gap: 1rem;
 }
-footer p {
-  color: orangered;
-  font-size: 1rem;
-  text-transform: capitalize;
-}
-@media (min-width: 350px) and (max-width: 480px) {
-  footer {
-    height: 2rem;
-  }
+button {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: blueviolet;
+  padding: 0.2rem 0.5rem;
+  color: white;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
 }

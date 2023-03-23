@@ -1,0 +1,23 @@
+.users {
+  background-color: aqua;
+  margin: 2rem 40rem;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+ul {
+  list-style-type: none;
+  padding: 1rem;
+}
+.users button {
+  padding: 0.2rem 0.5rem;
+  background-color: brown;
+  color: white;
+  font-weight: 700;
+  outline: none;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
